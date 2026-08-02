@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sophia & Alexander | Wedding</title>
+  <title>Sophia & Alexander | Sample Wedding Website</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -11,10 +11,8 @@
     :root {
       --gold: #c9a06a;
       --gold-light: #e0c892;
-      --rose: #c9a09a;
       --cream: #f9f5ef;
       --dark: #1e1c1a;
-      --soft-dark: #2c2926;
       --text: #2c2926;
       --muted: #6b6560;
     }
@@ -28,11 +26,27 @@
       font-size: 1.15rem;
     }
 
+    /* Sample Banner */
+    .sample-banner {
+      background: var(--dark);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1001;
+    }
+    .sample-banner strong {
+      color: white;
+    }
+
     /* Navigation */
     nav {
-      position: fixed;
-      top: 0; width: 100%;
-      background: rgba(249,245,239,0.95);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(249,245,239,0.97);
       backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid rgba(201,160,106,0.25);
@@ -43,15 +57,15 @@
       margin: 0 auto;
       display: flex;
       justify-content: center;
-      gap: 2.2rem;
+      gap: 1.6rem;
       flex-wrap: wrap;
       padding: 0 1rem;
     }
     nav a {
       color: var(--text);
       text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.12em;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.3s;
     }
@@ -65,10 +79,10 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 7rem 1.5rem 4rem;
+      padding: 6rem 1.5rem 4rem;
       position: relative;
       background:
-        linear-gradient(rgba(30,28,26,0.45), rgba(30,28,26,0.55)),
+        linear-gradient(rgba(30,28,26,0.48), rgba(30,28,26,0.58)),
         url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       color: var(--cream);
     }
@@ -82,13 +96,11 @@
       font-family: 'Monsieur La Doulaise', cursive;
       font-size: clamp(1.4rem, 3.5vw, 1.9rem);
       margin-bottom: 0.8rem;
-      opacity: 0.95;
     }
     .hero h1 {
       font-family: 'Monsieur La Doulaise', cursive;
       font-size: clamp(3.6rem, 11vw, 6rem);
       font-weight: 400;
-      margin-bottom: 0.4rem;
       text-shadow: 0 2px 18px rgba(0,0,0,0.4);
     }
     .hero h1 span { color: var(--gold-light); }
@@ -108,7 +120,7 @@
     /* Countdown */
     .countdown {
       display: flex;
-      gap: 1.4rem;
+      gap: 1.3rem;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 2.5rem;
@@ -118,25 +130,46 @@
       backdrop-filter: blur(6px);
       border: 1px solid rgba(224,200,146,0.35);
       border-radius: 8px;
-      padding: 1rem 1.3rem;
-      min-width: 80px;
+      padding: 1rem 1.2rem;
+      min-width: 78px;
     }
     .countdown-item .num {
-      font-size: 1.9rem;
+      font-size: 1.85rem;
       font-weight: 500;
       color: var(--gold-light);
       display: block;
     }
     .countdown-item .label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       opacity: 0.85;
     }
 
+    /* Music button */
+    .music-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      background: rgba(30,28,26,0.85);
+      color: var(--gold-light);
+      border: 1px solid var(--gold);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .music-btn:hover { background: var(--gold); color: white; }
+
     /* Sections */
     section {
-      padding: 5.5rem 1.5rem;
+      padding: 5.2rem 1.5rem;
       max-width: 960px;
       margin: 0 auto;
     }
@@ -151,7 +184,7 @@
       text-align: center;
       font-style: italic;
       color: var(--muted);
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.5rem;
       font-size: 1.15rem;
     }
     .ornament {
@@ -162,37 +195,70 @@
       letter-spacing: 0.2em;
     }
 
-    /* Details */
-    .details-grid {
+    /* Timeline */
+    .timeline { max-width: 520px; margin: 0 auto; }
+    .timeline-item {
+      display: flex;
+      gap: 1.4rem;
+      margin-bottom: 1.6rem;
+      align-items: flex-start;
+    }
+    .timeline-time {
+      min-width: 90px;
+      font-weight: 500;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+    .timeline-content h3 {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: 1.6rem;
+      color: var(--dark);
+      margin-bottom: 0.15rem;
+    }
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Love Story */
+    .story-box {
+      background: white;
+      border: 1px solid rgba(201,160,106,0.25);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    /* Wedding Party */
+    .party-grid {
       display: grid;
-      gap: 1.6rem;
+      gap: 2rem;
     }
-    @media (min-width: 640px) {
-      .details-grid { grid-template-columns: 1fr 1fr; }
+    @media (min-width: 700px) {
+      .party-grid { grid-template-columns: 1fr 1fr; }
     }
-    .detail-card {
+    .party-card {
       background: white;
       border: 1px solid rgba(201,160,106,0.25);
       border-radius: 10px;
-      padding: 2rem 1.6rem;
+      padding: 1.8rem 1.5rem;
       text-align: center;
-      transition: border-color 0.3s, box-shadow 0.3s;
     }
-    .detail-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 10px 30px rgba(201,160,106,0.12);
-    }
-    .detail-card h3 {
+    .party-card h3 {
       font-family: 'Monsieur La Doulaise', cursive;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--gold);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .detail-card .time {
-      font-size: 1.5rem;
-      color: var(--dark);
-      font-weight: 500;
-      margin: 0.4rem 0;
+    .party-card ul { list-style: none; }
+    .party-card li {
+      padding: 0.3rem 0;
+      color: var(--muted);
     }
 
     /* Venue */
@@ -215,7 +281,6 @@
       color: var(--gold);
       text-decoration: none;
       border-bottom: 1px solid var(--gold);
-      padding-bottom: 2px;
     }
 
     /* Hotels */
@@ -257,7 +322,7 @@
     }
     .gallery img:hover { transform: scale(1.03); }
 
-    /* RSVP */
+    /* Photos share + RSVP */
     .rsvp-box {
       background: white;
       border: 1px solid var(--gold);
@@ -276,7 +341,7 @@
       background: transparent;
       color: var(--gold);
       border: 1.5px solid var(--gold);
-      padding: 0.9rem 2.3rem;
+      padding: 0.9rem 2.1rem;
       font-size: 1rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -284,6 +349,7 @@
       border-radius: 4px;
       transition: all 0.3s;
       cursor: pointer;
+      margin: 0.4rem;
     }
     .btn:hover {
       background: var(--gold);
@@ -307,17 +373,37 @@
       color: var(--muted);
       font-size: 1.05rem;
     }
+    footer .sample-note {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Sample Banner -->
+  <div class="sample-banner">
+    <strong>Sample Website</strong> — This is an example of what your special day could look like
+  </div>
+
+  <!-- Ambient Music -->
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" id="music-toggle" title="Play / Pause Music">♪</button>
 
   <!-- Navigation -->
   <nav>
     <div class="nav-inner">
       <a href="#details">Details</a>
+      <a href="#story">Our Story</a>
+      <a href="#party">Wedding Party</a>
       <a href="#venue">Venue</a>
       <a href="#hotels">Hotels</a>
       <a href="#gallery">Gallery</a>
+      <a href="#photos">Photos</a>
       <a href="#rsvp">RSVP</a>
     </div>
   </nav>
@@ -330,7 +416,6 @@
     <div class="divider"></div>
     <p class="date">Saturday, September 18<sup>th</sup>, 2027</p>
 
-    <!-- Countdown -->
     <div class="countdown" id="countdown">
       <div class="countdown-item">
         <span class="num" id="days">00</span>
@@ -351,20 +436,110 @@
     </div>
   </header>
 
-  <!-- Details -->
+  <!-- Timeline -->
   <section id="details">
-    <h2>Wedding Details</h2>
+    <h2>Wedding Day Timeline</h2>
     <div class="ornament">❀  ❧  ❀</div>
-    <div class="details-grid">
-      <div class="detail-card">
-        <h3>Ceremony</h3>
-        <p class="time">3:30 p.m.</p>
-        <p>St. Mary’s Chapel</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">2:00 p.m.</div>
+        <div class="timeline-content">
+          <h3>Photos</h3>
+          <p>Couple & wedding party photographs</p>
+        </div>
       </div>
-      <div class="detail-card">
-        <h3>Reception</h3>
-        <p class="time">6:00 p.m.</p>
-        <p>The Willow Estate</p>
+      <div class="timeline-item">
+        <div class="timeline-time">3:30 p.m.</div>
+        <div class="timeline-content">
+          <h3>Ceremony</h3>
+          <p>St. Mary’s Chapel</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">4:30 p.m.</div>
+        <div class="timeline-content">
+          <h3>Cocktail Hour</h3>
+          <p>Garden terrace · drinks & light bites</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6:00 p.m.</div>
+        <div class="timeline-content">
+          <h3>Supper</h3>
+          <p>The Willow Estate Ballroom</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">7:15 p.m.</div>
+        <div class="timeline-content">
+          <h3>Speeches</h3>
+          <p>Toasts from family & friends</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">8:00 p.m.</div>
+        <div class="timeline-content">
+          <h3>Cake Cutting</h3>
+          <p>Sweet celebration</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">8:30 p.m.</div>
+        <div class="timeline-content">
+          <h3>Dancefloor Opens</h3>
+          <p>Let the night begin</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Love Story -->
+  <section id="story">
+    <h2>Our Story</h2>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="story-box">
+      Sophia and Alexander first met on a rainy afternoon in a quiet bookstore.  
+      What began as a conversation about favourite novels slowly grew into weekend walks, late-night talks, and a deep, steady love.  
+      Five years later, under the same soft rain, Alexander asked Sophia to spend forever with him.  
+      This day is the next chapter of their story — and they cannot wait to share it with the people they love most.
+    </div>
+  </section>
+
+  <!-- Wedding Party -->
+  <section id="party">
+    <h2>Wedding Party</h2>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="party-grid">
+      <div class="party-card">
+        <h3>Bridesmaids</h3>
+        <ul>
+          <li>Emily Carter — Maid of Honour</li>
+          <li>Olivia Bennett</li>
+          <li>Isabella Hayes</li>
+          <li>Charlotte Reid</li>
+        </ul>
+      </div>
+      <div class="party-card">
+        <h3>Groomsmen</h3>
+        <ul>
+          <li>William Brooks — Best Man</li>
+          <li>Henry Collins</li>
+          <li>James Parker</li>
+          <li>Thomas Reed</li>
+        </ul>
+      </div>
+      <div class="party-card">
+        <h3>Flower Girls</h3>
+        <ul>
+          <li>Lily Thompson</li>
+          <li>Grace Thompson</li>
+        </ul>
+      </div>
+      <div class="party-card">
+        <h3>Ring Bearer</h3>
+        <ul>
+          <li>Noah Mitchell</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -429,16 +604,32 @@
     </div>
   </section>
 
-  <!-- RSVP -->
+  <!-- Guest Photo Sharing -->
+  <section id="photos">
+    <h2>Share Your Photos</h2>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="rsvp-box">
+      <p style="margin-bottom: 1.5rem; color: var(--muted); max-width: 420px; margin-left: auto; margin-right: auto;">
+        We would love to see the special moments you capture.<br>
+        Tap the button below to add your photos to our shared album.
+      </p>
+      <a class="btn" href="#">Add Your Photos</a>
+    </div>
+  </section>
+
+  <!-- RSVP + Registry -->
   <section id="rsvp">
-    <h2>RSVP</h2>
+    <h2>RSVP & Gifts</h2>
     <div class="ornament">❀  ❧  ❀</div>
     <div class="rsvp-box">
       <p>Kindly reply by</p>
       <p class="deadline">August 1<sup>st</sup>, 2027</p>
       <p style="margin-bottom: 1.8rem; color: var(--muted);">We would be honoured by your presence</p>
+      
       <a class="btn" href="#">RSVP Here</a>
-      <p style="margin-top: 2rem; font-size: 1.05rem; color: var(--muted);">
+      <a class="btn" href="#">Gift Registry</a>
+
+      <p style="margin-top: 2.2rem; font-size: 1.05rem; color: var(--muted);">
         Questions? Contact us at<br>
         <span style="color: var(--gold);">hello@sophiaandalexander.com</span>
       </p>
@@ -449,16 +640,15 @@
   <footer>
     <p class="names">Sophia & Alexander</p>
     <p class="small">September 18, 2027</p>
+    <p class="sample-note">This is a sample website created to show the style and features available for your own wedding site.</p>
   </footer>
 
   <script>
-    // Countdown Timer - September 18, 2027
+    // Countdown
     const weddingDate = new Date("September 18, 2027 15:30:00").getTime();
-
     const timer = setInterval(function() {
       const now = new Date().getTime();
       const distance = weddingDate - now;
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -474,6 +664,22 @@
         document.getElementById("countdown").innerHTML = "<p style='font-size:1.3rem;color:var(--gold-light)'>The day has arrived!</p>";
       }
     }, 1000);
+
+    // Music toggle
+    const music = document.getElementById("bg-music");
+    const musicBtn = document.getElementById("music-toggle");
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.textContent = "♪";
+      } else {
+        music.play();
+        musicBtn.textContent = "❚❚";
+      }
+      isPlaying = !isPlaying;
+    });
   </script>
 </body>
 </html>
