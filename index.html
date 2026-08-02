@@ -37,9 +37,7 @@
       position: relative;
       z-index: 1001;
     }
-    .sample-banner strong {
-      color: white;
-    }
+    .sample-banner strong { color: white; }
 
     /* Navigation */
     nav {
@@ -145,27 +143,6 @@
       text-transform: uppercase;
       opacity: 0.85;
     }
-
-    /* Music button */
-    .music-btn {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 999;
-      background: rgba(30,28,26,0.85);
-      color: var(--gold-light);
-      border: 1px solid var(--gold);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-    .music-btn:hover { background: var(--gold); color: white; }
 
     /* Sections */
     section {
@@ -322,7 +299,7 @@
     }
     .gallery img:hover { transform: scale(1.03); }
 
-    /* Photos share + RSVP */
+    /* Photos + RSVP */
     .rsvp-box {
       background: white;
       border: 1px solid var(--gold);
@@ -387,12 +364,6 @@
   <div class="sample-banner">
     <strong>Sample Website</strong> — This is an example of what your special day could look like
   </div>
-
-  <!-- Ambient Music -->
-  <audio id="bg-music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
-</audio>
-  <button class="music-btn" id="music-toggle" title="Play / Pause Music">♪</button>
 
   <!-- Navigation -->
   <nav>
@@ -664,22 +635,6 @@
         document.getElementById("countdown").innerHTML = "<p style='font-size:1.3rem;color:var(--gold-light)'>The day has arrived!</p>";
       }
     }, 1000);
-
-    // Music toggle
-    const music = document.getElementById("bg-music");
-    const musicBtn = document.getElementById("music-toggle");
-    let isPlaying = false;
-
-    musicBtn.addEventListener("click", () => {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.textContent = "♪";
-      } else {
-        music.play();
-        musicBtn.textContent = "❚❚";
-      }
-      isPlaying = !isPlaying;
-    });
   </script>
 </body>
 </html>
