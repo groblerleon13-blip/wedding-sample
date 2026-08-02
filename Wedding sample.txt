@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sophia & Alexander | Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a06a;
+      --gold-light: #e0c892;
+      --rose: #c9a09a;
+      --cream: #f9f5ef;
+      --dark: #1e1c1a;
+      --soft-dark: #2c2926;
+      --text: #2c2926;
+      --muted: #6b6560;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 1.15rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(249,245,239,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(201,160,106,0.25);
+      padding: 1rem 0;
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 2.2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      background:
+        linear-gradient(rgba(30,28,26,0.45), rgba(30,28,26,0.55)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: var(--cream);
+    }
+    .hero-ornament {
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      letter-spacing: 0.35em;
+      margin-bottom: 1.2rem;
+    }
+    .hero .invite {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      margin-bottom: 0.8rem;
+      opacity: 0.95;
+    }
+    .hero h1 {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: clamp(3.6rem, 11vw, 6rem);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+    }
+    .hero h1 span { color: var(--gold-light); }
+    .hero .date {
+      font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+      letter-spacing: 0.08em;
+      margin-top: 1.2rem;
+      color: var(--gold-light);
+    }
+    .hero .divider {
+      width: 110px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+      margin: 1.8rem auto;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      gap: 1.4rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+    .countdown-item {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(224,200,146,0.35);
+      border-radius: 8px;
+      padding: 1rem 1.3rem;
+      min-width: 80px;
+    }
+    .countdown-item .num {
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      display: block;
+    }
+    .countdown-item .label {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* Sections */
+    section {
+      padding: 5.5rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .section-sub {
+      text-align: center;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 2.8rem;
+      font-size: 1.15rem;
+    }
+    .ornament {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin: 0.2rem 0 2rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* Details */
+    .details-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+    @media (min-width: 640px) {
+      .details-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .detail-card {
+      background: white;
+      border: 1px solid rgba(201,160,106,0.25);
+      border-radius: 10px;
+      padding: 2rem 1.6rem;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .detail-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 10px 30px rgba(201,160,106,0.12);
+    }
+    .detail-card h3 {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .detail-card .time {
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 500;
+      margin: 0.4rem 0;
+    }
+
+    /* Venue */
+    .venue-box {
+      background: white;
+      border: 1px solid rgba(201,160,106,0.3);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .venue-box h3 {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .venue-box a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+    }
+
+    /* Hotels */
+    .hotels-list { display: grid; gap: 1.3rem; }
+    .hotel-item {
+      background: white;
+      border-left: 3px solid var(--gold);
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 8px 8px 0;
+    }
+    .hotel-item h3 {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .hotel-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 1rem;
+      margin-right: 1.2rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (min-width: 700px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.4s;
+    }
+    .gallery img:hover { transform: scale(1.03); }
+
+    /* RSVP */
+    .rsvp-box {
+      background: white;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .rsvp-box .deadline {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: 2rem;
+      color: var(--gold);
+      margin: 1rem 0 1.8rem;
+    }
+    .btn {
+      display: inline-block;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      padding: 0.9rem 2.3rem;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-top: 1px solid rgba(201,160,106,0.25);
+      background: white;
+    }
+    footer .names {
+      font-family: 'Monsieur La Doulaise', cursive;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    footer .small {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#details">Details</a>
+      <a href="#venue">Venue</a>
+      <a href="#hotels">Hotels</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-ornament">✦ ✦ ✦</div>
+    <p class="invite">You are cordially invited to the wedding of</p>
+    <h1>Sophia <span>&</span> Alexander</h1>
+    <div class="divider"></div>
+    <p class="date">Saturday, September 18<sup>th</sup>, 2027</p>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="num" id="days">00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="num" id="hours">00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="num" id="minutes">00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="num" id="seconds">00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Details -->
+  <section id="details">
+    <h2>Wedding Details</h2>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>Ceremony</h3>
+        <p class="time">3:30 p.m.</p>
+        <p>St. Mary’s Chapel</p>
+      </div>
+      <div class="detail-card">
+        <h3>Reception</h3>
+        <p class="time">6:00 p.m.</p>
+        <p>The Willow Estate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <section id="venue">
+    <h2>Venue</h2>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="venue-box">
+      <h3>The Willow Estate</h3>
+      <p style="margin: 0.6rem 0 1rem; color: var(--muted);">Countryside, Saskatchewan</p>
+      <p>Join us for an evening of celebration surrounded by gardens and golden light.</p>
+      <a href="#">View on Google Maps</a>
+    </div>
+  </section>
+
+  <!-- Hotels -->
+  <section id="hotels">
+    <h2>Nearby Hotels</h2>
+    <p class="section-sub">Recommended accommodations for our guests</p>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="hotels-list">
+      <div class="hotel-item">
+        <h3>The Grand Hotel</h3>
+        <p>Downtown • 12 minutes away</p>
+        <div class="hotel-links">
+          <a href="#">Google Maps</a>
+          <a href="#">Website</a>
+        </div>
+      </div>
+      <div class="hotel-item">
+        <h3>Willow Inn & Suites</h3>
+        <p>Near the venue • 5 minutes away</p>
+        <div class="hotel-links">
+          <a href="#">Google Maps</a>
+          <a href="#">Website</a>
+        </div>
+      </div>
+      <div class="hotel-item">
+        <h3>Heritage Lodge</h3>
+        <p>Quiet countryside setting</p>
+        <div class="hotel-links">
+          <a href="#">Google Maps</a>
+          <a href="#">Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Our Moments</h2>
+    <p class="section-sub">A glimpse of our journey together</p>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Couple">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80" alt="Wedding">
+      <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Celebration">
+      <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=600&q=80" alt="Romance">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" alt="Details">
+      <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=600&q=80" alt="Love">
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <h2>RSVP</h2>
+    <div class="ornament">❀  ❧  ❀</div>
+    <div class="rsvp-box">
+      <p>Kindly reply by</p>
+      <p class="deadline">August 1<sup>st</sup>, 2027</p>
+      <p style="margin-bottom: 1.8rem; color: var(--muted);">We would be honoured by your presence</p>
+      <a class="btn" href="#">RSVP Here</a>
+      <p style="margin-top: 2rem; font-size: 1.05rem; color: var(--muted);">
+        Questions? Contact us at<br>
+        <span style="color: var(--gold);">hello@sophiaandalexander.com</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="names">Sophia & Alexander</p>
+    <p class="small">September 18, 2027</p>
+  </footer>
+
+  <script>
+    // Countdown Timer - September 18, 2027
+    const weddingDate = new Date("September 18, 2027 15:30:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, "0");
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "<p style='font-size:1.3rem;color:var(--gold-light)'>The day has arrived!</p>";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
